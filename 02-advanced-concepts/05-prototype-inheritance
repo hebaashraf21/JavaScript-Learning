@@ -1,0 +1,88 @@
+
+/*
+In JavaScript, inheritance is handled through a mechanism called 
+prototypal inheritance. Every object in JavaScript has a prototype,
+which is another object from which it can inherit properties and methods.
+*/
+
+// 1️⃣ Constructor Function and Prototypal Inheritance
+
+// function Animal(name) {
+//     this.name = name;
+// }
+
+// // Adding a method to the prototype
+// Animal.prototype.speak = function() {
+//     console.log(`${this.name} makes a sound.`);
+// };
+
+// // Creating an instance of Animal
+// dog = new Animal('Buddy');
+// dog.speak();  // Output: Buddy makes a sound.
+
+// // 2️⃣ The Prototype Chain
+
+// console.log(dog.__proto__ === Animal.prototype);  // Output: true
+
+// /*
+// When we access a property or method of an object (like dog.speak()),
+// and the object doesn't have it, JavaScript looks for it in the object's prototype.
+// */
+
+// // 3️⃣ Inheriting from Another Object (Prototypal Inheritance)
+
+// function Animal(name) {
+//     this.name = name;
+// }
+
+// Animal.prototype.speak = function() {
+//     console.log(`${this.name} makes a sound.`);
+// };
+
+// function Dog(name, breed) {
+//     Animal.call(this, name);  // Calling the parent constructor
+//     this.breed = breed;
+// }
+
+// // Inheriting methods from Animal
+// Dog.prototype = Object.create(Animal.prototype);  
+// Dog.prototype.constructor = Dog;  // Fixing the constructor property
+
+// // Adding a method to Dog prototype
+// Dog.prototype.bark = function() {
+//     console.log(`${this.name} barks.`);
+// };
+
+// // Creating an instance of Dog
+// dog = new Dog('Buddy', 'Golden Retriever');
+// dog.speak();  // Output: Buddy makes a sound.
+// dog.bark();   // Output: Buddy barks.
+
+// 4️⃣ ES6 Class Syntax (Class-based Inheritance)
+
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    speak() {
+        console.log(`${this.name} makes a sound.`);
+    }
+}
+
+class Dog extends Animal {
+    constructor(name, breed) {
+        super(name);  // Calling the parent class constructor
+        this.breed = breed;
+    }
+
+    bark() {
+        console.log(`${this.name} barks.`);
+    }
+}
+
+// Creating an instance of Dog using class-based syntax
+const dog = new Dog('Buddy', 'Golden Retriever');
+dog.speak();  // Output: Buddy makes a sound.
+dog.bark();   // Output: Buddy barks.
+
