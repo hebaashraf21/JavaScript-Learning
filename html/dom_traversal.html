@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Traversal</title>
+    <style>
+        .container {
+            border: 2px solid black;
+            padding: 10px;
+            width: 300px;
+        }
+
+        .parent {
+            background-color: lightgray;
+            padding: 10px;
+        }
+
+        .child {
+            background-color: lightblue;
+            margin: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DOM Traversal</h1>
+    <div class="container">
+        <div class="parent">
+            Parent
+            <div class="child">Child 1</div>
+            <div class="child">Child 2</div>
+            <div class="child">Child 3</div>
+        </div>
+    </div>
+
+    <button id="findParent">Find Parent</button>
+    <button id="findChildren">Find Children</button>
+    <button id="findSiblings">Find Siblings</button>
+
+    <script src="../03-dom-manipulation/06-dom-traversal.js"></script>
+</body>
+
+</html>
